@@ -1,0 +1,26 @@
+syntax = "proto3";
+package aliassend.aliassend;
+
+import "cosmos/base/v1beta1/coin.proto";
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "aliassend/x/aliassend/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc Mysend(MsgMysend) returns (MsgMysendResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgMysend {
+  string creator = 1;
+  string alias = 2;
+  string from = 3;
+  string to = 4;
+  cosmos.base.v1beta1.Coin coin = 5;
+}
+
+message MsgMysendResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message
